@@ -57,8 +57,8 @@ const Home = ({ contract, account }) => {
   // Open Google Maps with the property's location
   const openGoogleMaps = (latitude, longitude) => {
     // Convert to decimal form (if needed) and open in Google Maps
-    const lat = Number(latitude) / 10000;
-    const lon = Number(longitude) / 10000;
+    const lat = Number(latitude) / 10000000;
+    const lon = Number(longitude) / 10000000;
     const url = `https://www.google.com/maps?q=${lat},${lon}`;
     window.open(url, '_blank');
   };
