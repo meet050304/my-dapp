@@ -61,8 +61,8 @@ const AddProperty = ({ contract, account }) => {
         imageUrl,
         address,
         description,
-        latitude * 10000,  // Convert to integer representation for latitude
-        longitude * 10000  // Convert to integer representation for longitude
+        Math.round(latitude * 10**4),  // Convert latitude to scaled integer
+        Math.round(longitude * 10**4) // Convert longitude to scaled integer// Convert to integer representation for longitude
       );
 
       await tx.wait();
