@@ -65,6 +65,7 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Home contract={contract} account={account} />} />
           <Route path="/add-property" element={<AddProperty contract={contract} account={account} />} />
+          <Route path="/your-property" element={<AddProperty contract={contract} account={account} />} />
         </Routes>
       </div>
     </Router>
