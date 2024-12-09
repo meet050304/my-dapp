@@ -13,11 +13,12 @@ const AddProperty = ({ contract, account }) => {
   const [imageUrl, setImageUrl] = useState('');
   const [address, setAddress] = useState('');
   const [description, setDescription] = useState('');
+  const[pincode,setPincode]=useState('');
 
   // Function to get current location
-  const getCurrentLocation = () => {
+  const getCurrentLocation = async() => {
     if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(
+      await navigator.geolocation.getCurrentPosition(
         (position) => {
           const { latitude, longitude } = position.coords;
           setLatitude(latitude);  // Set latitude
@@ -32,10 +33,38 @@ const AddProperty = ({ contract, account }) => {
       alert("Geolocation is not supported by this browser.");
     }
   };
+  useEffect(()=>{
+
+    async function getPincodeFromGoogle(lat, lon) {
+      const api="AIzaSyCmK8zRVUPjPxJJoelskfVZWEv36K5mPbs";
+      const url = `https://maps.googleapis.com/maps/api/geocode/json?latlng=${latitude},${longitude}&key=${api}`;
+      try {
+        const response = await fetch(url);
+        const data = await response.json();
+        if (data.results.length > 0) {
+          for (const component of data.results[0].address_components) {
+            if (component.types.includes("postal_code")) {
+              console.log("pincode ",component.long_name);
+              setPincode(component.long_name);
+              return component.long_name;
+            }
+          }
+        }
+        console.error("No pincode found in response.");
+        return null;
+      } catch (error) {
+        console.error("Error fetching pincode:", error);
+        return null;
+      }
+    }
+    getPincodeFromGoogle(latitude,longitude);
+  },[latitude,longitude]);
+  
 
   useEffect(() => {
     if (useCurrentLocation) {
       getCurrentLocation(); // Get current location if the user chooses to
+      // getPincodeFromGoogle(latitude,longitude);
     }
   }, [useCurrentLocation]);
 
@@ -76,6 +105,7 @@ const AddProperty = ({ contract, account }) => {
       setDescription('');
       setLatitude(null);
       setLongitude(null);
+      setPincode(null);
     } catch (error) {
       console.error('Error listing property:', error);
       alert('Error listing property. Please check console for details.');
@@ -209,6 +239,24 @@ const AddProperty = ({ contract, account }) => {
             </>
           )}
         </div>
+        <div>
+          {useCurrentLocation ? (
+            <p>Pincode: {pincode ? pincode : 'Fetching...'}</p>
+          ) : (
+            <>
+              <label htmlFor="pincode" className="block text-sm font-medium">Pincode</label>
+              <input
+                type="number"
+                id="latitude"
+                value={pincode}
+                onChange={(e) => setPincode(e.target.value)}
+                className="w-full p-2 border border-gray-300 rounded"
+                placeholder="Enter Pincode"
+              />
+            </>
+          )}
+        </div>
+
 
         <button
           onClick={listProperty}

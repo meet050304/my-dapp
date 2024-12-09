@@ -15,6 +15,9 @@ const Navbar = ({ account, connectWallet, isLoading }) => {
           <Link to="/add-property" className="px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600 ml-4">
             Add Property
           </Link>
+          <Link to="/add-property" className="px-4 py-2 bg-pink-500 text-white rounded hover:bg-pink-600 ml-4">
+            Your Property
+          </Link>
         </div>
       </nav>
 
