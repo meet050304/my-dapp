@@ -32,8 +32,8 @@ const Home = ({ contract, account }) => {
     setIsBuying(true);
     try {
       // Get the property details
-      const property = await contract.getProperty(propertyId);
-      console.log("Property details:", property);
+    //   const property = await contract.getPropertyForBuy(propertyId);
+    //   console.log("Property details:", property);
 
       const priceInETH = ethers.formatEther(price);
       const priceInWei = ethers.parseEther(priceInETH);
@@ -87,6 +87,7 @@ const Home = ({ contract, account }) => {
                 Owner: {property.owner.slice(0, 6)}...{property.owner.slice(-4)}
               </p>
               {/* Add Google Maps Button */}
+              
               {property.latitude && property.longitude && (
                 <button
                   onClick={() =>

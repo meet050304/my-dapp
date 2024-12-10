@@ -4,17 +4,18 @@ import { ethers } from 'ethers';
 import sbc from './MyContract.json';
 import Navbar from './components/Navbarr.js';
 import Home from './components/Home.js';
+import YourProperty from './components/YourProperty.js';
 import AddProperty from './components/AddProperty.js';
 
 const abi = sbc;
-const contractAddress = '0x33d28e8bead0f923943b104a5566e34113e8a664';
+const contractAddress = '0xdf5fa3e4d029852c22779dff329242d61dda2dbf';
 
 const App = () => {
   const [account, setAccount] = useState('');
   const [contract, setContract] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
 
-  // Initialize Contract
+  // Initialize Contracts
   const loadContract = useCallback(async () => {
     try {
       if (!window.ethereum) {
@@ -65,7 +66,7 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Home contract={contract} account={account} />} />
           <Route path="/add-property" element={<AddProperty contract={contract} account={account} />} />
-          <Route path="/your-property" element={<AddProperty contract={contract} account={account} />} />
+          <Route path="/your-property" element={<YourProperty contract={contract} account={account} />} />
         </Routes>
       </div>
     </Router>
