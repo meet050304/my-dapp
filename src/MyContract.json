@@ -1,5 +1,138 @@
 [
 	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "productId",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "rating",
+				"type": "uint256"
+			},
+			{
+				"internalType": "string",
+				"name": "comment",
+				"type": "string"
+			},
+			{
+				"internalType": "address",
+				"name": "user",
+				"type": "address"
+			}
+		],
+		"name": "addReview",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "buyer",
+				"type": "address"
+			},
+			{
+				"internalType": "uint256",
+				"name": "productId",
+				"type": "uint256"
+			}
+		],
+		"name": "buyProperty",
+		"outputs": [],
+		"stateMutability": "payable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "productId",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "reviewIndex",
+				"type": "uint256"
+			},
+			{
+				"internalType": "address",
+				"name": "user",
+				"type": "address"
+			}
+		],
+		"name": "likeReview",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "owner",
+				"type": "address"
+			},
+			{
+				"internalType": "uint256",
+				"name": "price",
+				"type": "uint256"
+			},
+			{
+				"internalType": "string",
+				"name": "propertyTitle",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "category",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "image",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "propertyAddress",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "description",
+				"type": "string"
+			},
+			{
+				"internalType": "uint256",
+				"name": "latitude",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "longitude",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "pincode",
+				"type": "uint256"
+			}
+		],
+		"name": "listProperty",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
 		"inputs": [],
 		"stateMutability": "nonpayable",
 		"type": "constructor"
@@ -156,47 +289,94 @@
 	{
 		"inputs": [
 			{
+				"internalType": "address",
+				"name": "owner",
+				"type": "address"
+			},
+			{
+				"internalType": "uint256",
+				"name": "price",
+				"type": "uint256"
+			},
+			{
 				"internalType": "uint256",
 				"name": "productId",
 				"type": "uint256"
-			},
-			{
-				"internalType": "uint256",
-				"name": "rating",
-				"type": "uint256"
-			},
-			{
-				"internalType": "string",
-				"name": "comment",
-				"type": "string"
-			},
-			{
-				"internalType": "address",
-				"name": "user",
-				"type": "address"
 			}
 		],
-		"name": "addReview",
-		"outputs": [],
+		"name": "updatePrice",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
 		"stateMutability": "nonpayable",
 		"type": "function"
 	},
 	{
 		"inputs": [
 			{
+				"internalType": "uint256",
+				"name": "productId",
+				"type": "uint256"
+			},
+			{
 				"internalType": "address",
-				"name": "buyer",
+				"name": "owner",
 				"type": "address"
 			},
 			{
 				"internalType": "uint256",
-				"name": "productId",
+				"name": "price",
+				"type": "uint256"
+			},
+			{
+				"internalType": "string",
+				"name": "propertyTitle",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "category",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "image",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "propertyAddress",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "description",
+				"type": "string"
+			},
+			{
+				"internalType": "uint256",
+				"name": "latitude",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "longitude",
 				"type": "uint256"
 			}
 		],
-		"name": "buyProperty",
-		"outputs": [],
-		"stateMutability": "payable",
+		"name": "updateProperty",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "nonpayable",
 		"type": "function"
 	},
 	{
@@ -263,6 +443,11 @@
 					{
 						"internalType": "uint256",
 						"name": "longitude",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "pincode",
 						"type": "uint256"
 					}
 				],
@@ -404,6 +589,97 @@
 						"internalType": "uint256",
 						"name": "longitude",
 						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "pincode",
+						"type": "uint256"
+					}
+				],
+				"internalType": "struct MyContract.Property[]",
+				"name": "",
+				"type": "tuple[]"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "id",
+				"type": "uint256"
+			}
+		],
+		"name": "getPropertyForBuy",
+		"outputs": [
+			{
+				"components": [
+					{
+						"internalType": "uint256",
+						"name": "productId",
+						"type": "uint256"
+					},
+					{
+						"internalType": "string[]",
+						"name": "reviews",
+						"type": "string[]"
+					},
+					{
+						"internalType": "address[]",
+						"name": "reviewers",
+						"type": "address[]"
+					},
+					{
+						"internalType": "string",
+						"name": "description",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "images",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "category",
+						"type": "string"
+					},
+					{
+						"internalType": "uint256",
+						"name": "price",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address",
+						"name": "owner",
+						"type": "address"
+					},
+					{
+						"internalType": "string",
+						"name": "propertyTitle",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "propertyAddress",
+						"type": "string"
+					},
+					{
+						"internalType": "uint256",
+						"name": "latitude",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "longitude",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "pincode",
+						"type": "uint256"
 					}
 				],
 				"internalType": "struct MyContract.Property[]",
@@ -461,88 +737,6 @@
 		"type": "function"
 	},
 	{
-		"inputs": [
-			{
-				"internalType": "uint256",
-				"name": "productId",
-				"type": "uint256"
-			},
-			{
-				"internalType": "uint256",
-				"name": "reviewIndex",
-				"type": "uint256"
-			},
-			{
-				"internalType": "address",
-				"name": "user",
-				"type": "address"
-			}
-		],
-		"name": "likeReview",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "owner",
-				"type": "address"
-			},
-			{
-				"internalType": "uint256",
-				"name": "price",
-				"type": "uint256"
-			},
-			{
-				"internalType": "string",
-				"name": "propertyTitle",
-				"type": "string"
-			},
-			{
-				"internalType": "string",
-				"name": "category",
-				"type": "string"
-			},
-			{
-				"internalType": "string",
-				"name": "image",
-				"type": "string"
-			},
-			{
-				"internalType": "string",
-				"name": "propertyAddress",
-				"type": "string"
-			},
-			{
-				"internalType": "string",
-				"name": "description",
-				"type": "string"
-			},
-			{
-				"internalType": "uint256",
-				"name": "latitude",
-				"type": "uint256"
-			},
-			{
-				"internalType": "uint256",
-				"name": "longitude",
-				"type": "uint256"
-			}
-		],
-		"name": "listProperty",
-		"outputs": [
-			{
-				"internalType": "uint256",
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
 		"inputs": [],
 		"name": "propertyIndex",
 		"outputs": [
@@ -566,99 +760,6 @@
 			}
 		],
 		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "owner",
-				"type": "address"
-			},
-			{
-				"internalType": "uint256",
-				"name": "price",
-				"type": "uint256"
-			},
-			{
-				"internalType": "uint256",
-				"name": "productId",
-				"type": "uint256"
-			}
-		],
-		"name": "updatePrice",
-		"outputs": [
-			{
-				"internalType": "uint256",
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "uint256",
-				"name": "productId",
-				"type": "uint256"
-			},
-			{
-				"internalType": "address",
-				"name": "owner",
-				"type": "address"
-			},
-			{
-				"internalType": "uint256",
-				"name": "price",
-				"type": "uint256"
-			},
-			{
-				"internalType": "string",
-				"name": "propertyTitle",
-				"type": "string"
-			},
-			{
-				"internalType": "string",
-				"name": "category",
-				"type": "string"
-			},
-			{
-				"internalType": "string",
-				"name": "image",
-				"type": "string"
-			},
-			{
-				"internalType": "string",
-				"name": "propertyAddress",
-				"type": "string"
-			},
-			{
-				"internalType": "string",
-				"name": "description",
-				"type": "string"
-			},
-			{
-				"internalType": "uint256",
-				"name": "latitude",
-				"type": "uint256"
-			},
-			{
-				"internalType": "uint256",
-				"name": "longitude",
-				"type": "uint256"
-			}
-		],
-		"name": "updateProperty",
-		"outputs": [
-			{
-				"internalType": "uint256",
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"stateMutability": "nonpayable",
 		"type": "function"
 	}
 ]

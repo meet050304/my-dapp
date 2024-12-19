@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { ethers } from 'ethers';
 
@@ -28,11 +27,17 @@ const YourProperty = ({ contract, account }) => {
 
   // Render properties
   const renderProperties = () => {
-    if (properties.length === 0) {
+    // Filter out properties with price 0.0 ETH
+    const filteredProperties = properties.filter(property => {
+      const priceInEth = ethers.formatEther(property.price);
+      return parseFloat(priceInEth) > 0.0;
+    });
+
+    if (filteredProperties.length === 0) {
       return <p>No properties found.</p>;
     }
 
-    return properties.map((property, index) => (
+    return filteredProperties.map((property, index) => (
       <div key={index} className="border p-4 mb-4 rounded-lg shadow-md">
         <h3 className="text-lg font-semibold">{property.title}</h3>
         <p><strong>Category:</strong> {property.category}</p>

@@ -8,7 +8,7 @@ import YourProperty from './components/YourProperty.js';
 import AddProperty from './components/AddProperty.js';
 
 const abi = sbc;
-const contractAddress = '0xdf5fa3e4d029852c22779dff329242d61dda2dbf';
+const contractAddress = '0xefb9db4701b568227f08606f6ced4c0883205724';
 
 const App = () => {
   const [account, setAccount] = useState('');
