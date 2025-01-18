@@ -13,6 +13,7 @@ const Home = ({ contract, account }) => {
     setIsLoading(true);
     try {
       const props = await contract.getAllProperties();
+      console.log("in get all properties",props);
       setProperties(props);
     } catch (error) {
       console.error("Error fetching properties:", error);

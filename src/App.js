@@ -2,10 +2,10 @@ import React, { useState, useEffect, useCallback } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { ethers } from 'ethers';
 import sbc from './MyContract.json';
-import Navbar from './components/Navbarr.js';
-import Home from './components/Home.js';
-import YourProperty from './components/YourProperty.js';
-import AddProperty from './components/AddProperty.js';
+import Navbar from './parts/Navbarr.js';
+import Home from './parts/Home.js';
+import YourProperty from './parts/YourProperty.js';
+import AddProperty from './parts/AddProperty.js';
 
 const abi = sbc;
 const contractAddress = '0xefb9db4701b568227f08606f6ced4c0883205724';
